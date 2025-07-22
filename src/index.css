@@ -2,41 +2,61 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* F1-Inspired Streetwear Design System */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Rajdhani:wght@400;500;600;700&display=swap');
 
 @layer base {
   :root {
+    /* F1 Racing Color Palette */
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --foreground: 0 0% 9%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 0 0% 9%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 0 0% 9%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Racing Red Primary */
+    --primary: 0 84% 55%;
+    --primary-foreground: 0 0% 98%;
+    --primary-glow: 0 84% 65%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Carbon Secondary */
+    --secondary: 0 0% 15%;
+    --secondary-foreground: 0 0% 98%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Racing Silver */
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Speed Accent */
+    --accent: 210 100% 55%;
+    --accent-foreground: 0 0% 98%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 0 0% 90%;
+    --input: 0 0% 96%;
+    --ring: 0 84% 55%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
+
+    /* F1 Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(0 84% 55%), hsl(0 84% 45%));
+    --gradient-speed: linear-gradient(90deg, hsl(0 84% 55%), hsl(210 100% 55%));
+    --gradient-carbon: linear-gradient(135deg, hsl(0 0% 15%), hsl(0 0% 25%));
+    --gradient-hero: linear-gradient(135deg, hsl(0 0% 9%) 0%, hsl(0 84% 15%) 100%);
+
+    /* F1 Shadows */
+    --shadow-racing: 0 10px 30px -5px hsl(0 84% 55% / 0.3);
+    --shadow-carbon: 0 20px 60px -10px hsl(0 0% 0% / 0.4);
+    --shadow-glow: 0 0 40px hsl(0 84% 55% / 0.3);
+
+    /* Animations */
+    --transition-speed: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-race: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
     --sidebar-background: 0 0% 98%;
 
@@ -56,41 +76,121 @@ All colors MUST be HSL.
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    /* Dark F1 Theme */
+    --background: 0 0% 9%;
+    --foreground: 0 0% 98%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 0 0% 12%;
+    --card-foreground: 0 0% 98%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 0 0% 12%;
+    --popover-foreground: 0 0% 98%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 0 84% 55%;
+    --primary-foreground: 0 0% 98%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 0 0% 20%;
+    --secondary-foreground: 0 0% 98%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 0 0% 20%;
+    --muted-foreground: 0 0% 60%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 210 100% 55%;
+    --accent-foreground: 0 0% 98%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --border: 0 0% 20%;
+    --input: 0 0% 15%;
+    --ring: 0 84% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-inter;
+  }
+}
+
+@layer components {
+  /* F1 Racing Button Variants */
+  .btn-racing {
+    @apply bg-gradient-to-r from-primary to-primary-glow text-primary-foreground font-rajdhani font-semibold uppercase tracking-wider transform transition-all duration-200 hover:scale-105 hover:shadow-racing;
+  }
+
+  .btn-carbon {
+    @apply bg-gradient-to-r from-secondary to-zinc-800 text-secondary-foreground font-rajdhani font-semibold transform transition-all duration-200 hover:scale-105 hover:shadow-carbon;
+  }
+
+  .btn-speed {
+    @apply bg-gradient-to-r from-accent to-blue-600 text-accent-foreground font-rajdhani font-semibold transform transition-all duration-200 hover:scale-105;
+  }
+
+  /* Racing Card Effects */
+  .card-racing {
+    @apply bg-card border border-border rounded-xl shadow-lg transform transition-all duration-300 hover:scale-105 hover:shadow-racing;
+  }
+
+  .card-carbon {
+    @apply bg-gradient-to-br from-secondary to-zinc-800 text-secondary-foreground rounded-xl shadow-carbon transform transition-all duration-300 hover:scale-105;
+  }
+
+  /* Speed Animations */
+  .speed-fade {
+    @apply animate-in fade-in slide-in-from-bottom-4 duration-500;
+  }
+
+  .speed-scale {
+    @apply animate-in zoom-in duration-300;
+  }
+
+  /* F1 Typography */
+  .text-racing {
+    @apply font-rajdhani font-bold uppercase tracking-widest;
+  }
+
+  .text-speed {
+    @apply font-inter font-medium;
+  }
+
+  /* Racing Gradients */
+  .bg-racing-gradient {
+    background: var(--gradient-primary);
+  }
+
+  .bg-speed-gradient {
+    background: var(--gradient-speed);
+  }
+
+  .bg-carbon-gradient {
+    background: var(--gradient-carbon);
+  }
+
+  .bg-hero-gradient {
+    background: var(--gradient-hero);
+  }
+
+  /* Racing Glow Effects */
+  .glow-racing {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .glow-racing:hover {
+    animation: pulse-glow 2s infinite;
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% {
+      box-shadow: var(--shadow-glow);
+    }
+    50% {
+      box-shadow: 0 0 60px hsl(0 84% 55% / 0.5);
+    }
   }
 }
 
